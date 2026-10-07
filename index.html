@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Đường đua 60 mét – Toán 7</title>
+<meta name="description" content="Học liệu tương tác Giáo dục thể chất 7 – Chủ đề Chạy cự li ngắn. GV Ngô Thị Phương, THCS Võ Thị Sáu, Hải Phòng.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800;900&family=Lexend:wght@600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap');
+:root{--bg:#fff6ee;--panel:#fff;--ink:#1f2433;--dim:#6a6f80;--line:#f0d9c6;--acc:#e4572e;--accdk:#a33a19;--acc2:#2563eb;--onacc:#fff;--gold:#e39a00;--gold2:#8a5a00;--goldbg:#fff3d6;--soft:#fbe9dd;--note:#fffaf5;--inbg:#fff;
+--okbg:#e5f6ea;--okc:#166534;--warnbg:#fff0e0;--warnc:#9a4706;--infobg:#eaf0ff;--infoc:#1e3a8a;--shadow:0 3px 16px rgba(31,36,51,.08);--certbg:radial-gradient(circle at 50% 0,#fff,#ffe7d9);--certink:#1f2433;--certacc:#e4572e}
+body{background:linear-gradient(180deg,rgba(228,87,46,.08),transparent 260px),var(--bg)}
+h1,.hero h2,.cert h2,.cert .ct,.act h3,.room h3{font-family:'Oswald','Lexend',sans-serif!important;letter-spacing:.01em;font-weight:700}
+h1{text-transform:uppercase}
+
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 'Be Vietnam Pro',system-ui,sans-serif}
+.app{max-width:1140px;margin:0 auto;padding:18px 16px 26px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.brand{display:flex;gap:14px;align-items:center}
+.logo{flex:0 0 66px;height:66px;border:2px solid var(--acc);border-radius:12px;display:flex;flex-direction:column;justify-content:center;padding:4px 9px;color:var(--acc);background:var(--panel)}
+.logo small{font:700 11px 'JetBrains Mono',monospace}.logo b{font:800 21px/1.1 'Lexend',sans-serif;white-space:nowrap}
+h1{margin:0;font:800 clamp(26px,5vw,46px)/1.08 'Lexend',sans-serif;letter-spacing:-.015em}
+.sub{font:600 12px 'JetBrains Mono',monospace;letter-spacing:.08em;color:var(--dim);margin-top:5px;text-transform:uppercase}
+.hud{display:flex;gap:8px}
+.hbtn{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:8px 14px;font:600 14px 'JetBrains Mono',monospace;cursor:pointer}
+.hbtn b{color:var(--gold);font-size:17px}
+.rooms{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 22px}
+.rooms button{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:8px 14px;font:700 14px 'Be Vietnam Pro',sans-serif;cursor:pointer;display:flex;gap:7px;align-items:center}
+.rooms button .n{font:600 12px 'JetBrains Mono',monospace;color:var(--dim)}
+.rooms button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}.rooms button.on .n{color:inherit;opacity:.7}
+.chip{display:inline-block;font:700 12px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);border:1px solid var(--acc);border-radius:999px;padding:3px 11px;background:var(--panel)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center}
+.hero h2{font:800 clamp(26px,4.3vw,42px)/1.15 'Lexend',sans-serif;margin:12px 0;letter-spacing:-.01em}
+.hero p{color:var(--dim)}
+.quote{border-left:4px solid var(--gold);padding:2px 12px;color:var(--gold2);font-size:18px;margin:12px 0}
+.hub{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:24px}
+.room{display:flex;gap:14px;text-align:left;cursor:pointer;color:var(--ink);font:inherit;transition:transform .15s,border-color .15s}
+.room:hover{border-color:var(--acc);transform:translateY(-2px)}
+.room .t,.tile{flex:0 0 64px;height:64px;border:2px solid var(--acc);border-radius:12px;display:flex;flex-direction:column;justify-content:center;padding:4px 8px;color:var(--acc)}
+.room .t small{font:700 11px 'JetBrains Mono',monospace}.room .t b{font:800 18px/1.1 'Lexend',sans-serif;white-space:nowrap}
+.room h3{margin:0;font:700 20px/1.25 'Lexend',sans-serif}.room p{margin:3px 0 5px;color:var(--dim);font-size:14px}
+.room .st{font:700 13px 'JetBrains Mono',monospace;color:var(--gold)}
+.rhead{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px}
+.coach{display:flex;gap:10px;align-items:center;flex:1 1 380px}
+.coach .av{font-size:36px;line-height:1;animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-5px)}}
+.coach .say{background:var(--panel);border:1px solid var(--line);border-radius:4px 16px 16px 16px;padding:8px 13px;font-size:15px;flex:1}
+.act{margin-bottom:16px}
+.act h3{margin:0 0 4px;font:700 21px/1.3 'Lexend',sans-serif;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bpill{font:700 12px 'JetBrains Mono',monospace;border:1px dashed var(--line);color:var(--dim);border-radius:999px;padding:2px 9px}
+.bpill.got{border:1px solid var(--gold);color:var(--gold2);background:var(--goldbg)}
+.dim{color:var(--dim)}.small{font-size:14px}
+.tnote{border:1px dashed var(--line);border-radius:14px;padding:10px 14px;margin-top:14px;background:var(--note);font-size:15px}
+.tnote summary{cursor:pointer;font-weight:800;color:var(--acc)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.center{justify-content:center}
+.btn{border:none;border-radius:13px;padding:11px 18px;font:800 16px 'Be Vietnam Pro',sans-serif;cursor:pointer;transition:transform .1s}
+.btn:active{transform:scale(.96)}
+.btn.main{background:var(--acc);color:var(--onacc);box-shadow:0 4px 0 var(--accdk)}
+.btn.ghost{background:var(--soft);color:var(--ink)}
+.btn.line{background:transparent;border:2px solid var(--line);color:var(--ink)}
+.btn[disabled]{opacity:.45;cursor:default}
+.msg{border-radius:13px;padding:10px 14px;margin-top:12px;font-size:15.5px}
+.msg.ok{background:var(--okbg);color:var(--okc)}.msg.warn{background:var(--warnbg);color:var(--warnc)}.msg.info{background:var(--infobg);color:var(--infoc)}
+.prog{height:9px;background:var(--soft);border-radius:99px;overflow:hidden;margin:10px 0 2px}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--acc2));width:0;transition:width .35s}
+.fx{display:inline-flex;align-items:center;gap:2px;vertical-align:middle}
+.fr{display:inline-flex;flex-direction:column;text-align:center;line-height:1.05;vertical-align:middle}
+.fr b{font-weight:inherit;padding:0 3px}.fr b:first-child{border-bottom:.09em solid currentColor}
+.numin{width:84px;font:800 20px 'Be Vietnam Pro',sans-serif;text-align:center;padding:8px;border:2px solid var(--line);border-radius:12px;background:var(--inbg);color:var(--ink)}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:10px}
+.opt{border:2px solid var(--line);background:var(--panel);color:var(--ink);border-radius:14px;padding:12px 14px;font:700 17px 'Be Vietnam Pro',sans-serif;cursor:pointer;text-align:left}
+.opt:hover{border-color:var(--acc)}
+.opt.right{border-color:#16a34a;background:var(--okbg);color:var(--okc)}.opt.wrong{border-color:#dc2626;background:var(--warnbg);color:var(--warnc)}
+.big{font:800 34px 'Be Vietnam Pro',sans-serif;color:var(--acc)}
+svg{display:block;width:100%;height:auto;user-select:none;-webkit-user-select:none}
+.shake{animation:sh .35s}@keyframes sh{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.pop{animation:pp .5s}@keyframes pp{40%{transform:scale(1.15)}}
+/* quiz */
+.quiz{max-width:820px;margin:0 auto}
+.qtop{display:flex;justify-content:space-between;font:700 14px 'JetBrains Mono',monospace;color:var(--dim)}
+.qbar{height:8px;background:var(--soft);border-radius:99px;overflow:hidden;margin:8px 0 14px}.qbar i{display:block;height:100%;background:var(--gold);transition:width 1s linear}
+.qq{font:700 22px/1.4 'Lexend',sans-serif;margin:6px 0 10px}
+.cert{text-align:center;border:4px double var(--gold);border-radius:22px;padding:26px 18px;background:var(--certbg);color:var(--certink)}
+.cert .m{font:700 13px 'JetBrains Mono',monospace;letter-spacing:.2em}
+.cert h2{font:800 30px 'Lexend',sans-serif;margin:10px 0 2px;letter-spacing:.04em}
+.cert .ct{font:800 22px 'Lexend',sans-serif;color:var(--certacc)}
+.cert .who{font:900 30px 'Be Vietnam Pro',sans-serif;border-bottom:2px dashed var(--gold);display:inline-block;min-width:240px;padding:0 12px;margin:8px 0}
+.cert input{font:700 17px 'Be Vietnam Pro',sans-serif;padding:9px 12px;border:2px solid var(--line);border-radius:12px;max-width:100%;background:#fff;color:#1b2440}
+table.info{width:100%;border-collapse:collapse;font-size:15px}
+table.info th{text-align:left;vertical-align:top;padding:9px 12px 9px 0;border-bottom:1px solid var(--line);width:28%;color:var(--acc)}
+table.info td{padding:9px 0;border-bottom:1px solid var(--line)}
+footer{text-align:center;color:var(--dim);font-size:13px;padding:6px 16px 30px}
+#cf{position:fixed;inset:0;pointer-events:none;z-index:9998}
+#toast{position:fixed;left:50%;top:18px;transform:translate(-50%,-200%);background:var(--ink);color:var(--bg);padding:11px 20px;border-radius:999px;font-weight:800;z-index:9999;transition:transform .35s;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:92vw;text-align:center}
+#toast.show{transform:translate(-50%,0)}#toast:empty{display:none}
+.hscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}.swipe{display:none;text-align:center;font-size:12.5px;color:var(--dim)}
+@media(max-width:820px){.hero,.grid2{grid-template-columns:1fr}}
+@media(max-width:600px){.app{padding:14px 12px}.rooms button{padding:7px 11px;font-size:13px}.panel{padding:14px}.logo{flex-basis:56px;height:56px}.swipe{display:block}.hscroll svg{min-width:640px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.qstage{margin-bottom:14px}
+
+.qbig{font:800 20px/1.4 'Lexend',sans-serif;margin:10px 0}
+.yn{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px}.yn .opt{min-width:180px;text-align:center}
+.stage{background:linear-gradient(#fff,#fdf1e8);border:2px solid var(--line);border-radius:16px;padding:6px;margin:10px 0}
+.cmds{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.cmds .btn{font-size:18px}
+.cmds .btn.on{background:var(--acc);color:#fff}
+.desc{border-left:5px solid var(--acc);background:var(--note);border-radius:10px;padding:10px 14px;margin-top:10px;font-size:15.5px;min-height:60px}
+.track{border-radius:16px;overflow:hidden;border:2px solid var(--line)}
+.phasebar{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.phasebar span{border:2px solid var(--line);border-radius:12px;padding:6px;text-align:center;font:700 14px 'Be Vietnam Pro',sans-serif;background:#fff}
+.phasebar span.on{border-color:var(--acc);background:#ffe7d9;color:var(--accdk)}
+.lanes{width:100%;border-collapse:separate;border-spacing:0 8px}
+.lanes td{padding:6px 8px;background:#fff;border-top:2px solid var(--line);border-bottom:2px solid var(--line)}
+.lanes td:first-child{border-left:2px solid var(--line);border-radius:12px 0 0 12px}.lanes td:last-child{border-right:2px solid var(--line);border-radius:0 12px 12px 0}
+.lanes input{width:120px;font:700 15px 'Be Vietnam Pro',sans-serif;border:1px solid var(--line);border-radius:8px;padding:6px}
+.lanes .t{font:800 22px 'JetBrains Mono',monospace;min-width:110px;display:inline-block}
+.bigclock{font:800 46px 'JetBrains Mono',monospace;text-align:center;color:var(--acc);margin:6px 0}
+.calc{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font:700 17px 'Be Vietnam Pro',sans-serif;margin-top:8px}
+.warm{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:10px}
+.warm div{border:2px solid var(--line);border-radius:14px;padding:10px;text-align:center;background:#fff;font-size:14.5px}
+.warm div .e{font-size:30px;display:block}.warm div.on{border-color:var(--acc);background:#ffe7d9}.warm div.ok{border-color:#16a34a;background:var(--okbg)}
+.countdown{font:800 60px 'Oswald',sans-serif;text-align:center;color:var(--acc)}
+@media(max-width:600px){.lanes input{width:66px;font-size:13px}.lanes .t{min-width:64px;font-size:16px}.lanes td{padding:5px 4px}.lanes .btn{padding:8px 8px;font-size:13px}.bigclock{font-size:36px}.phasebar span{font-size:11.5px;padding:4px}}
+
+.lanesHub{margin-top:24px}
+.board2{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;background:#111827;color:#fbbf24;font:700 15px 'JetBrains Mono',monospace;padding:12px 16px;border-radius:14px 14px 0 0;letter-spacing:.08em;border:4px solid #374151;border-bottom:none}
+.board2 .score{color:#34d399}
+.trk{background:#e4572e;border:4px solid #374151;border-top:none;border-radius:0 0 14px 14px;padding:6px 0;box-shadow:var(--shadow)}
+.lane{width:100%;display:grid;grid-template-columns:52px minmax(0,1.1fr) minmax(0,2fr) 60px;align-items:center;gap:10px;background:none;border:none;border-bottom:3px solid rgba(255,255,255,.9);padding:12px 12px;cursor:pointer;color:#fff;text-align:left;font:inherit}
+.lane:last-child{border-bottom:none}.lane:hover{background:rgba(255,255,255,.08)}
+.ln{width:42px;height:42px;border-radius:50%;background:#fff;color:#a33a19;font:700 22px 'Oswald',sans-serif;display:flex;align-items:center;justify-content:center}
+.lt b{display:block;font:700 19px 'Oswald',sans-serif;letter-spacing:.02em}.lt small{display:block;opacity:.9;font-size:12.5px;line-height:1.3}
+.lpath{position:relative;height:40px;border-left:4px solid #fff;border-right:4px dashed #fff}
+.runner{position:absolute;top:2px;font-size:30px;transition:left .6s}
+.lst{font:700 20px 'Oswald',sans-serif;text-align:right}
+.lane.ok{background:rgba(22,101,52,.25)}
+.rooms button{border-radius:6px;transform:skewX(-8deg)}.rooms button>*{display:inline-block}.rooms button.on{background:#e4572e;border-color:#e4572e;color:#fff}
+.race{background:#1f2433;border-radius:16px;padding:14px;color:#fff}.race.win{background:linear-gradient(135deg,#166534,#1f2433)}
+.rr{display:flex;align-items:center;gap:10px;margin:6px 0}.rl{width:46px;font:700 14px 'JetBrains Mono',monospace}
+.rt{position:relative;flex:1;height:46px;background:#e4572e;border-radius:8px;border:2px solid #fff}
+.rn{position:absolute;top:50%;transform:translateY(-50%);line-height:1;font-size:30px;transition:left .6s}.rn.bot{filter:saturate(.6)}
+.fin{position:absolute;right:0;top:0;bottom:0;width:10px;background:repeating-linear-gradient(#fff 0 6px,#111 6px 12px)}
+.rtx{text-align:center;font:600 14px 'Be Vietnam Pro',sans-serif;color:#e5e7eb;margin-top:6px}
+.medalc{text-align:center;border-radius:20px;padding:22px 16px;background:radial-gradient(circle at 50% 0,#fff,#ffe7d9);border:3px solid #e4572e;color:#1f2433}
+.mtop{font:700 12px 'JetBrains Mono',monospace;letter-spacing:.18em;color:#a33a19}
+.medal{position:relative;width:150px;height:190px;margin:8px auto}
+.rib{position:absolute;left:35px;top:0;width:80px;height:80px;background:linear-gradient(90deg,#2563eb 0 33%,#fff 33% 66%,#e4572e 66%);clip-path:polygon(0 0,100% 0,75% 100%,25% 100%)}
+.disc{position:absolute;left:15px;top:62px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--m2),var(--m));border:6px solid var(--m);box-shadow:0 8px 18px rgba(0,0,0,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#1f2433}
+.disc span{font:700 30px 'Oswald',sans-serif}.disc b{font:700 16px 'Oswald',sans-serif;letter-spacing:.1em}
+.medalc h2{font:700 30px 'Oswald',sans-serif;letter-spacing:.06em;margin:4px 0}.medalc .ct{font:800 19px 'Lexend',sans-serif;color:#e4572e}
+.medalc .who{font:900 30px 'Be Vietnam Pro',sans-serif;border-bottom:2px dashed #e4572e;display:inline-block;min-width:240px;padding:0 12px;margin:6px 0}
+.mstats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:8px 0;font:700 14px 'Be Vietnam Pro',sans-serif}.mstats span{background:#fff;border:1px solid #f0d9c6;border-radius:999px;padding:4px 12px}
+.medalc input{font:700 16px 'Be Vietnam Pro',sans-serif;padding:8px 12px;border:2px solid #f0d9c6;border-radius:12px}
+@media(max-width:640px){.lane{grid-template-columns:40px minmax(0,1fr) 44px;grid-template-areas:"n t s" "p p p"}.ln{grid-area:n;width:36px;height:36px;font-size:18px}.lt{grid-area:t}.lst{grid-area:s}.lpath{grid-area:p}.lt small{display:none}}
+
+</style>
+</head>
+<body>
+<canvas id="cf"></canvas><div id="toast" role="status" aria-live="polite"></div>
+<div class="app">
+<header class="top">
+  <div class="brand"><div class="logo"><small>GDTC 7</small><b>60m</b></div><div><h1>Đường đua 60 mét</h1><div class="sub">Giáo dục thể chất 7 · Chạy cự li ngắn · Học liệu tương tác và mô phỏng</div></div></div>
+  <div class="hud"><button class="hbtn" id="snd" aria-label="Bật/tắt âm thanh">🔊</button><div class="hbtn">Huy hiệu <b id="bc">0</b>/<span id="bt">0</span></div></div>
+</header>
+<nav class="rooms" id="nav" aria-label="Các phòng học"></nav>
+
+<section class="view" id="v-hub">
+  <div class="hero">
+    <div><span class="chip">Phòng chờ</span><h2>Kỉ lục thế giới 100 m là 9,58 giây. Em chạy 60 m hết bao nhiêu giây?</h2>
+<div class="quote">Gợi ý: muốn chạy nhanh, phải phối hợp tốt cả 4 giai đoạn: xuất phát, chạy lao, giữa quãng và về đích.</div>
+<p>Cùng Huấn luyện viên Tia Chớp đi qua 4 phòng: xuất phát cao và làm trọng tài nhí, bốn giai đoạn chạy, phòng thí nghiệm tốc độ với đồng hồ bấm giờ, khởi động và an toàn. Hoàn thành nhiệm vụ để nhận huy hiệu và giấy chứng nhận Vận động viên nhí.</p>
+</div>
+    <div class="panel" style="text-align:center">
+<svg id="heroSvg" viewBox="0 0 520 260" aria-label="Người chạy trên đường chạy"></svg>
+<div id="heroCap" style="font:700 18px 'Lexend',sans-serif;min-height:28px;margin-top:6px"></div>
+</div>
+  </div>
+  <div class="hub" id="hubRooms"></div>
+</section>
+
+<!-- R1 XUẤT PHÁT CAO -->
+<section class="view" id="v-r1" hidden>
+  <div class="grid2">
+    <div class="panel act">
+      <h3>Ba khẩu lệnh xuất phát cao <span class="bpill" data-badge="cmd"></span></h3>
+      <div class="dim">Bấm từng khẩu lệnh để xem tư thế, sau đó trả lời 3 câu hỏi nhận biết tư thế. Đúng 3/3 để nhận huy hiệu.</div>
+      <div class="cmds"><button class="btn ghost" data-c="0">1. "Vào chỗ!"</button><button class="btn ghost" data-c="1">2. "Sẵn sàng!"</button><button class="btn ghost" data-c="2">3. "Chạy!"</button></div>
+      <div class="stage"><svg id="cm-svg" viewBox="0 0 400 200" aria-label="Tư thế xuất phát cao"></svg></div>
+      <div class="desc" id="cm-desc">👆 Bấm một khẩu lệnh.</div>
+      <div class="prog"><i id="cq-p"></i></div><div class="dim small" id="cq-c"></div>
+      <div class="qbig">Tư thế dưới đây ứng với khẩu lệnh nào?</div>
+      <div class="stage"><svg id="cq-svg" viewBox="0 0 400 200"></svg></div>
+      <div class="opts" id="cq-o"></div><div id="cq-f"></div><div class="row"><button class="btn ghost" id="cq-nx">Câu tiếp ➜</button></div>
+    </div>
+    <div class="panel act">
+      <h3>Trọng tài nhí <span class="bpill" data-badge="start"></span></h3>
+      <div class="dim">Em là trọng tài. Mỗi tình huống là hợp lệ hay phạm quy? Đúng 4/5 để nhận huy hiệu.</div>
+      <div class="prog"><i id="rf-p"></i></div><div class="dim small" id="rf-c"></div>
+      <div class="qbig" id="rf-q"></div>
+      <div class="yn"><button class="opt" data-k="1">✅ Hợp lệ</button><button class="opt" data-k="0">🚩 Phạm quy</button></div>
+      <div id="rf-f"></div><div class="row"><button class="btn ghost" id="rf-nx">Tình huống tiếp ➜</button></div>
+    </div>
+  </div>
+  <details class="tnote"><summary>Gợi ý cho giáo viên</summary>Dùng ở Bài 1. Phối hợp trong giai đoạn xuất phát cao và chạy lao sau xuất phát. Hình người là mô phỏng đơn giản hoá để học sinh nhận biết tư thế; giáo viên thị phạm và sửa động tác trực tiếp trên sân theo SGK. Có thể chiếu phòng này trước giờ ra sân hoặc dùng trong tiết học trong nhà khi trời mưa. Trò chơi "Trọng tài nhí": cho học sinh luân phiên làm trọng tài khi tập xuất phát theo nhóm.</details>
+</section>
+
+<!-- R2 BỐN GIAI ĐOẠN -->
+<section class="view" id="v-r2" hidden>
+  <div class="panel act">
+    <h3>Bốn giai đoạn chạy cự li ngắn <span class="bpill" data-badge="phases"></span></h3>
+    <div class="dim">Bấm "Chạy thử 60 m" để xem tư thế thân người thay đổi qua từng giai đoạn. Sau đó ghép đúng mô tả với giai đoạn. Đúng 4/4 để nhận huy hiệu.</div>
+    <div class="track"><svg id="ph-svg" viewBox="0 0 820 190" aria-label="Đường chạy 60 mét"></svg></div>
+    <div class="phasebar" id="ph-bar"><span>① Xuất phát</span><span>② Chạy lao sau xuất phát</span><span>③ Chạy giữa quãng</span><span>④ Về đích</span></div>
+    <div class="row center"><button class="btn main" id="ph-run">▶ Chạy thử 60 m</button></div>
+    <div class="prog"><i id="pq-p"></i></div><div class="dim small" id="pq-c"></div>
+    <div class="qbig" id="pq-q"></div><div class="opts" id="pq-o"></div><div id="pq-f"></div>
+    <div class="row"><button class="btn ghost" id="pq-nx">Câu tiếp ➜</button></div>
+  </div>
+  <div class="panel act">
+    <h3>Phát hiện động tác sai <span class="bpill" data-badge="errors"></span></h3>
+    <div class="dim">Mỗi động tác là đúng hay sai kĩ thuật? Đúng 4/5 để nhận huy hiệu.</div>
+    <div class="prog"><i id="er-p"></i></div><div class="dim small" id="er-c"></div>
+    <div class="qbig" id="er-q"></div>
+    <div class="yn"><button class="opt" data-k="1">👍 Đúng kĩ thuật</button><button class="opt" data-k="0">✋ Sai kĩ thuật</button></div>
+    <div id="er-f"></div><div class="row"><button class="btn ghost" id="er-nx">Động tác tiếp ➜</button></div>
+  </div>
+  <details class="tnote"><summary>Gợi ý cho giáo viên</summary>Dùng ở Bài 2 và Bài 3: phối hợp các giai đoạn chạy cự li ngắn. Lưu ý học sinh quan sát độ ngả thân: ngả nhiều khi chạy lao, nâng dần thân trên khi chạy giữa quãng, gập thân khi về đích. Các lỗi sai thường gặp có thể dùng làm phiếu quan sát chéo: học sinh chạy, bạn cùng nhóm đánh dấu lỗi.</details>
+</section>
+
+<!-- R3 TỐC ĐỘ -->
+<section class="view" id="v-r3" hidden>
+  <div class="grid2">
+    <div class="panel act">
+      <h3>Phòng thí nghiệm tốc độ <span class="bpill" data-badge="speed"></span></h3>
+      <div class="dim">Vận tốc trung bình = quãng đường : thời gian (v = s : t). Đúng 3/4 câu để nhận huy hiệu.</div>
+      <div class="calc">s = <input class="numin" id="sp-s" type="number" value="60"> m · t = <input class="numin" id="sp-t" type="number" value="10" step="0.1"> giây → <b id="sp-v"></b></div>
+      <div class="prog"><i id="sq-p"></i></div><div class="dim small" id="sq-c"></div>
+      <div class="qbig" id="sq-q"></div><div class="opts" id="sq-o"></div><div id="sq-f"></div>
+      <div class="row"><button class="btn ghost" id="sq-nx">Câu tiếp ➜</button></div>
+    </div>
+    <div class="panel act">
+      <h3>Đồng hồ bấm giờ 4 làn <span class="bpill" data-badge="timer"></span></h3>
+      <div class="dim">Dùng khi tập trên sân: bấm Xuất phát, máy hô "Vào chỗ – Sẵn sàng – Chạy!", bấm Về đích cho từng làn. Bấm giờ cho ít nhất 2 làn để nhận huy hiệu.</div>
+      <div class="calc">Cự li: <input class="numin" id="tm-d" type="number" value="60"> m</div>
+      <div class="bigclock" id="tm-clock">0,00</div>
+      <div style="overflow-x:auto"><table class="lanes" id="tm-lanes"></table></div>
+      <div class="row"><button class="btn main" id="tm-go">🏁 Xuất phát</button><button class="btn ghost" id="tm-reset">↻ Đặt lại</button></div>
+      <div id="tm-f"></div>
+    </div>
+  </div>
+  <details class="tnote"><summary>Gợi ý cho giáo viên</summary>Phòng này tích hợp với Toán (tính vận tốc, đổi đơn vị) và Khoa học tự nhiên (tốc độ). Đồng hồ 4 làn có thể dùng thật khi kiểm tra chạy 60 m: một người bấm cho cả 4 làn, kết quả và vận tốc hiện ngay. Kết quả không được lưu hay gửi đi; giáo viên tự ghi vào sổ.</details>
+</section>
+
+<!-- R4 KHỞI ĐỘNG & AN TOÀN -->
+<section class="view" id="v-r4" hidden>
+  <div class="panel act">
+    <h3>Khởi động cùng Tia Chớp <span class="bpill" data-badge="warm"></span></h3>
+    <div class="dim">Bấm Bắt đầu và tập theo từng động tác, mỗi động tác 20 giây. Hoàn thành cả 6 động tác để nhận huy hiệu (giáo viên có thể bấm Bỏ qua khi trình chiếu).</div>
+    <div class="warm" id="wu-list"></div>
+    <div class="countdown" id="wu-cd">–</div>
+    <div class="row center"><button class="btn main" id="wu-go">▶ Bắt đầu khởi động</button><button class="btn ghost" id="wu-skip">⏭ Bỏ qua động tác</button></div>
+    <div class="calc" style="margin-top:14px">💓 Đếm mạch trong 15 giây: <input class="numin" id="hr-n" type="number" placeholder="?"> nhịp <button class="btn line" id="hr-ck">Tính nhịp/phút</button></div>
+    <div id="wu-f"></div>
+  </div>
+  <div class="panel act">
+    <h3>An toàn khi tập luyện <span class="bpill" data-badge="safe"></span></h3>
+    <div class="dim">Đúng hay sai? Đúng 4/5 để nhận huy hiệu.</div>
+    <div class="prog"><i id="sf-p"></i></div><div class="dim small" id="sf-c"></div>
+    <div class="qbig" id="sf-q"></div>
+    <div class="yn"><button class="opt" data-k="1">✔ Đúng</button><button class="opt" data-k="0">✘ Sai</button></div>
+    <div id="sf-f"></div><div class="row"><button class="btn ghost" id="sf-nx">Câu tiếp ➜</button></div>
+  </div>
+  <details class="tnote"><summary>Gợi ý cho giáo viên</summary>Phần khởi động có thể chiếu lên màn hình cho cả lớp tập theo trước giờ chạy. Đếm mạch: học sinh đặt hai ngón tay ở cổ tay hoặc cổ, đếm số nhịp trong 15 giây rồi nhân 4; so sánh trước và sau khi chạy để thấy nhịp tim tăng khi vận động. Học liệu không đánh giá sức khoẻ; học sinh có vấn đề sức khoẻ cần theo hướng dẫn của giáo viên và nhân viên y tế trường.</details>
+</section>
+
+
+<section class="view" id="v-r5" hidden>
+  <div class="quiz" id="quiz"></div>
+  <details class="tnote" style="max-width:820px;margin:14px auto 0"><summary>Gợi ý cho giáo viên</summary>Dùng khi ôn tập lí thuyết hoặc trong giờ học trong nhà, mỗi câu 30 giây. Đạt từ 6/8 câu nhận giấy chứng nhận Vận động viên nhí.</details>
+</section>
+
+<section class="view" id="v-info" hidden>
+  <div class="panel" style="max-width:920px;margin:0 auto;display:flex;flex-direction:column;gap:14px">
+    <span class="chip" style="align-self:flex-start">Thông tin học liệu (theo Công văn 5158/SGDĐT-GDTrH)</span>
+    <h2 style="font:800 28px 'Lexend',sans-serif;margin:0">Đường đua 60 mét – Học liệu tương tác và mô phỏng</h2>
+    <div style="overflow-x:auto"><table class="info" id="infoT"></table></div>
+  </div>
+</section>
+</div>
+<footer>Học liệu số Giáo dục thể chất 7 · Ngô Thị Phương – Trường THCS Võ Thị Sáu, phường An Biên, Hải Phòng · Giáo viên đồng sáng tạo cùng AI</footer>
+<script>
+/* ====== KHUNG CHUNG (dùng cho các học liệu Toán 7) ====== */
+const $=id=>document.getElementById(id),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b]}return a||1}
+function simp(f){const g=gcd(f.n,f.d);let n=f.n/g,d=f.d/g;if(d<0){n=-n;d=-d}return{n,d}}
+function parse(s){s=String(s).replace(/−/g,'-').replace(',','.').trim();
+  if(s.includes(' ')){const[w,fr]=s.split(' ');const[a,b]=fr.split('/').map(Number),W=Number(w);return simp({n:(Math.abs(W)*b+a)*(W<0?-1:1),d:b})}
+  if(s.includes('/')){const[a,b]=s.split('/').map(Number);return{n:a,d:b}}
+  const p=s.split('.');if(p.length===1)return{n:Number(s),d:1};
+  const d=Math.pow(10,p[1].length);return simp({n:Math.round(Number(s)*d),d})}
+function val(s){const f=parse(s);return f.n/f.d}
+function pretty(s){return String(s).replace(/-/g,'−')}
+function F(s){s=String(s);const neg=s[0]==='-',b=neg?s.slice(1):s;
+  if(b.includes(' ')){const[w,fr]=b.split(' ');const[n,d]=fr.split('/');return `<span class="fx">${neg?'−':''}${w}<span class="fr"><b>${n}</b><b>${d}</b></span></span>`}
+  if(b.includes('/')){const[n,d]=b.split('/');return `<span class="fx">${neg?'−':''}<span class="fr"><b>${n}</b><b>${d}</b></span></span>`}
+  return (neg?'−':'')+b}
+function fs(n,d){return (n<0?'−':'')+Math.abs(n)+(d===1?'':'/'+d)}
+function factors(n){const f=[];let d=2;n=Math.abs(n);while(n>1){while(n%d===0){f.push(d);n/=d}d++}return f}
+function decimal(a,b){const sign=(a<0)!==(b<0)&&a!==0?'-':'';a=Math.abs(a);b=Math.abs(b);
+  const int=Math.floor(a/b);let r=a%b;const seen={},digits=[],steps=[];let cs=-1;
+  while(r!==0&&digits.length<260){if(seen[r]!==undefined){cs=seen[r];break}seen[r]=digits.length;const q=Math.floor(r*10/b),nr=(r*10)%b;steps.push({r,q,nr});digits.push(q);r=nr}
+  const pre=cs<0?digits.join(''):digits.slice(0,cs).join(''),cyc=cs<0?'':digits.slice(cs).join('');
+  return{sign,int,pre,cyc,steps,repR:r}}
+function fmtD(d){return (d.sign?'−':'')+d.int+(d.pre||d.cyc?','+d.pre+(d.cyc?'('+d.cyc+')':''):'')}
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+
+/* âm thanh */
+let AC=null,soundOn=true;try{soundOn=localStorage.getItem('vts-snd')!=='0'}catch(e){}
+function beep(f,d,type,v,w){if(!soundOn)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();
+  const o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime+(w||0);o.type=type||'sine';o.frequency.value=f;
+  g.gain.setValueAtTime(v||.08,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(AC.destination);o.start(t);o.stop(t+d+.03)}catch(e){}}
+const sfx={ok(){beep(660,.14);beep(990,.22,'sine',.08,.11)},bad(){beep(190,.28,'square',.035)},tap(){beep(540,.07,'triangle',.06)},
+  flip(){beep(420,.05,'triangle',.04)},tick(){beep(880,.03,'square',.02)},win(){[523,659,784,1047].forEach((f,i)=>beep(f,.3,'sine',.08,i*.13))}};
+
+/* pháo giấy + thông báo */
+let cv,cx,parts=[],raf=0;
+function confetti(n){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;cv=cv||$('cf');cx=cx||cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;
+  const cols=['#fbbf24','#f43f5e','#3b82f6','#22c55e','#ec4899','#14b8a6','#a78bfa'];
+  for(let i=0;i<(n||70);i++)parts.push({x:innerWidth/2+(Math.random()-.5)*240,y:innerHeight*.35,vx:(Math.random()-.5)*13,vy:-Math.random()*12-4,r:Math.random()*6+4,c:cols[i%7],a:Math.random()*6,l:95});
+  if(!raf)tick()}
+function tick(){cx.clearRect(0,0,cv.width,cv.height);parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.45;p.a+=.2;p.l--;cx.save();cx.translate(p.x,p.y);cx.rotate(p.a);cx.fillStyle=p.c;cx.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);cx.restore()});
+  parts=parts.filter(p=>p.l>0&&p.y<cv.height+20);raf=parts.length?requestAnimationFrame(tick):(cx.clearRect(0,0,cv.width,cv.height),0)}
+let toastT=0;function toast(t){const e=$('toast');e.innerHTML=t;e.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>e.classList.remove('show'),2600)}
+
+/* trạng thái, huy hiệu */
+const ST={b:{},name:''};
+function loadST(){try{const o=JSON.parse(localStorage.getItem(L.key)||'{}');ST.b=o.b||{};ST.name=o.name||''}catch(e){}}
+function saveST(){try{localStorage.setItem(L.key,JSON.stringify(ST))}catch(e){}}
+function award(k){if(ST.b[k])return false;ST.b[k]=1;saveST();sfx.win();confetti(110);toast('🏅 Huy hiệu mới: '+L.badges[k]);counts();return true}
+function counts(){const n=Object.keys(L.badges).filter(k=>ST.b[k]).length;$('bc').textContent=n;$('bt').textContent=Object.keys(L.badges).length;
+  $$('.bpill').forEach(p=>{const k=p.dataset.badge;p.classList.toggle('got',!!ST.b[k]);p.textContent=(ST.b[k]?'🏅 ':'○ ')+L.badges[k]});
+  $$('#hubRooms .room').forEach(b=>{const r=L.rooms.find(x=>x[0]===b.dataset.go);b.querySelector('.st').textContent='★ '+r[5].filter(k=>ST.b[k]).length+'/'+r[5].length});if(L.renderHub)L.renderHub()}
+function say(t){const v=$$('.view').find(x=>!x.hidden);const s=v&&v.querySelector('.say');if(s)s.innerHTML='<b>'+L.coach+':</b> '+t}
+function msg(id,t,cls){$(id).innerHTML=t?`<div class="msg ${cls||'info'}">${t}</div>`:''}
+function prog(p,i,n,s){$(p+'-p').style.width=(i/n*100)+'%';$(p+'-c').textContent='Câu '+Math.min(i+1,n)+'/'+n+' · Đúng ngay lần đầu: '+s}
+const STOP=[];function stopAll(){STOP.forEach(f=>{try{f()}catch(e){}})}
+function go(v){if(!$('v-'+v))v='hub';stopAll();$$('.view').forEach(x=>x.hidden=x.id!=='v-'+v);$$('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.go===v));
+  if(L.intro&&L.intro[v])say(L.intro[v]);if(v===L.quizRoom)qIntro();if(L.onEnter)L.onEnter(v);
+  try{history.replaceState(null,'','#'+v)}catch(e){}window.scrollTo(0,0)}
+
+/* thử thách tính giờ + giấy chứng nhận */
+let qi=0,qs=0,qt=null,tl=30,qLock=false,QS=[];
+STOP.push(()=>clearInterval(qt));
+function qIntro(){clearInterval(qt);$('quiz').innerHTML=`<div class="panel" style="text-align:center"><span class="chip">${L.quiz.length} câu · mỗi câu 30 giây</span>
+  <h2 style="font:800 30px 'Lexend',sans-serif;margin:12px 0 6px">${L.quizTitle}</h2><p class="dim">Đúng từ ${L.quizPass}/${L.quiz.length} câu trở lên để nhận giấy chứng nhận <b>${L.certTitle}</b>.</p>
+  <div class="row center"><input id="qName" class="numin" style="width:280px;font-size:17px;text-align:left" maxlength="40" placeholder="Tên và lớp của em" value="${(ST.name||'').replace(/"/g,'&quot;')}"></div>
+  <div class="row center"><button class="btn main" id="qGo">▶ Bắt đầu thử thách</button></div><p class="dim small">Tên chỉ lưu trên máy của em, không gửi đi đâu.</p></div>`;
+  $('qGo').onclick=()=>{ST.name=$('qName').value.trim();saveST();QS=L.quiz.map(q=>({...q,ord:shuffle(q.o.map((t,i)=>i))}));qi=0;qs=0;qRender()}}
+function qRender(){clearInterval(qt);const el=$('quiz');
+  if(qi>=QS.length){const pass=qs>=L.quizPass;if(pass)award('quiz');
+    const n=Object.keys(L.badges).filter(k=>ST.b[k]).length,N=Object.keys(L.badges).length;
+    const ctx={name:ST.name||'. . . . . . . .',qs,n:QS.length,b:n,B:N,date:new Date().toLocaleDateString('vi-VN'),nameIn:`<input id="cName" maxlength="40" placeholder="Sửa tên của em" value="${(ST.name||'').replace(/"/g,'&quot;')}">`};
+    if(pass&&L.cert){el.innerHTML=L.cert(ctx)+'<div class="row center"><button class="btn ghost" id="qAgain">↻ Làm lại thử thách</button></div>';confetti(160);
+      $('cName').oninput=e=>{ST.name=e.target.value.trim();saveST();$('certWho').textContent=ST.name||'. . . . . . . .'};$('qAgain').onclick=()=>{QS=L.quiz.map(q=>({...q,ord:shuffle(q.o.map((t,i)=>i))}));qi=0;qs=0;qRender()};return}
+    el.innerHTML=pass?`<div class="cert"><div class="m">${L.certTop}</div><h2>GIẤY CHỨNG NHẬN</h2><div class="ct">${L.certTitle}</div><div style="margin-top:10px">Trao cho</div>
+      <div class="who" id="certWho">${ST.name||'. . . . . . . .'}</div><div>đã hoàn thành ${L.certWhat} với <b>${qs}/${QS.length}</b> câu đúng và đạt <b>${n}/${N}</b> huy hiệu.</div>
+      <div class="small" style="margin-top:6px;opacity:.8">Ngày ${new Date().toLocaleDateString('vi-VN')} · GV hướng dẫn: Ngô Thị Phương – Trường THCS Võ Thị Sáu, Hải Phòng</div>
+      <div class="row center"><input id="cName" maxlength="40" placeholder="Sửa tên của em" value="${(ST.name||'').replace(/"/g,'&quot;')}"></div>
+      <div class="small" style="margin-top:6px">📸 Chụp màn hình giấy chứng nhận gửi cô nhé!</div></div><div class="row center"><button class="btn ghost" id="qAgain">↻ Làm lại thử thách</button></div>`
+     :`<div class="panel" style="text-align:center"><h2 style="font:800 30px 'Lexend',sans-serif">${qs}/${QS.length} câu đúng</h2><p>Cần ${L.quizPass}/${QS.length} câu để nhận giấy chứng nhận. Em ôn lại các phòng rồi thử lại nhé!</p><div class="row center"><button class="btn main" id="qAgain">↻ Làm lại</button></div></div>`;
+    if(pass){confetti(160);$('cName').oninput=e=>{ST.name=e.target.value.trim();saveST();$('certWho').textContent=ST.name||'. . . . . . . .'}}
+    $('qAgain').onclick=()=>{QS=L.quiz.map(q=>({...q,ord:shuffle(q.o.map((t,i)=>i))}));qi=0;qs=0;qRender()};return}
+  const q=QS[qi];tl=30;qLock=false;
+  el.innerHTML=(L.qStage?'<div id="qStage" class="qstage"></div>':'')+`<div class="panel"><div class="qtop"><span>Câu ${qi+1}/${QS.length}</span><span>Đúng: ${qs}</span><span id="qTime">⏱ 30 giây</span></div><div class="qbar"><i id="qBar" style="width:100%"></i></div>
+    <div class="qq">${q.q}</div><div class="opts" id="qOpts">${q.ord.map(i=>`<button class="opt" data-i="${i}">${q.o[i]}</button>`).join('')}</div><div id="qFb"></div>
+    <div class="row"><button class="btn main" id="qNext" hidden>Câu tiếp ➜</button></div></div>`;
+  $$('#qOpts .opt').forEach(b=>b.onclick=()=>qAns(+b.dataset.i));$('qNext').onclick=()=>{qi++;qRender()};
+  if(L.qStage)L.qStage({qi,qs,n:QS.length,last:null,pass:L.quizPass});
+  qt=setInterval(()=>{tl--;$('qTime').textContent='⏱ '+tl+' giây';$('qBar').style.width=(tl/30*100)+'%';if(tl<=5&&tl>0)sfx.tick();if(tl<=0)qAns(-1)},1000)}
+function qAns(i){if(qLock)return;qLock=true;clearInterval(qt);const q=QS[qi],ok=i===q.a;if(ok){qs++;sfx.ok()}else sfx.bad();
+  $$('#qOpts .opt').forEach(b=>{const k=+b.dataset.i;if(k===q.a)b.classList.add('right');else if(k===i)b.classList.add('wrong');b.disabled=true});
+  msg('qFb',(i<0?'⏰ Hết giờ! ':ok?'✅ Chính xác! ':'💭 Chưa đúng. ')+(q.e||''),ok?'ok':'warn');$('qNext').hidden=false;$('qNext').textContent=qi<QS.length-1?'Câu tiếp ➜':'Xem kết quả ➜';if(L.qStage)L.qStage({qi,qs,n:QS.length,last:ok,pass:L.quizPass})}
+
+/* khởi động */
+function boot(){loadST();
+  $('snd').textContent=soundOn?'🔊':'🔇';$('snd').onclick=()=>{soundOn=!soundOn;$('snd').textContent=soundOn?'🔊':'🔇';try{localStorage.setItem('vts-snd',soundOn?'1':'0')}catch(e){}};
+  $('nav').innerHTML=[['hub','00','Phòng chờ'],...L.rooms.map(r=>[r[0],r[3],r[1]]),['info','ⓘ','Thông tin học liệu']].map(r=>`<button data-go="${r[0]}"><span class="n">${r[1]}</span>${r[2]}</button>`).join('');
+  $$('#nav button').forEach(b=>b.onclick=()=>go(b.dataset.go));
+  if(!L.renderHub)$('hubRooms').innerHTML=L.rooms.map(r=>`<button class="panel room" data-go="${r[0]}"><span class="t"><small>${r[3]}</small><b>${r[4]}</b></span><span><h3>${r[1]}</h3><p>${r[2]}</p><span class="st"></span></span></button>`).join('');
+  $$('#hubRooms .room').forEach(b=>b.onclick=()=>go(b.dataset.go));
+  L.rooms.forEach(r=>{const s=$('v-'+r[0]);if(s)s.insertAdjacentHTML('afterbegin',`<div class="rhead"><span class="chip">Phòng ${r[3]} · ${r[1]}</span><div class="coach"><span class="av">${L.avatar}</span><div class="say"></div></div></div>`)});
+  $('infoT').innerHTML=L.info.map(r=>`<tr><th>${r[0]}</th><td>${r[1]}</td></tr>`).join('');
+  counts();if(L.hero)L.hero();
+  const h=location.hash.slice(1);go($('v-'+h)?h:'hub')}
+
+/* ====== GDTC 7 · CHẠY CỰ LI NGẮN ====== */
+const L={key:'vts-gdtc7-chayngan',coach:'HLV Tia Chớp',avatar:'⚡',
+ rooms:[['r1','Xuất phát cao','Ba khẩu lệnh "Vào chỗ – Sẵn sàng – Chạy"; làm trọng tài nhí.','01','🏁',['cmd','start']],
+  ['r2','Bốn giai đoạn chạy','Xem người chạy 60 m đổi tư thế qua 4 giai đoạn; phát hiện động tác sai.','02','60m',['phases','errors']],
+  ['r3','Phòng thí nghiệm tốc độ','Tính vận tốc v = s : t; đồng hồ bấm giờ 4 làn dùng ngay trên sân.','03','⏱',['speed','timer']],
+  ['r4','Khởi động & an toàn','Khởi động theo hướng dẫn, đếm mạch; nguyên tắc an toàn khi tập.','04','💓',['warm','safe']],
+  ['r5','Thử thách & chứng nhận','8 câu hỏi tính giờ, nhận giấy chứng nhận Vận động viên nhí.','05','★',['quiz']]],
+ badges:{cmd:'Thuộc khẩu lệnh',start:'Trọng tài nhí',phases:'Hiểu 4 giai đoạn',errors:'Mắt tinh sửa lỗi',speed:'Nhà khoa học tốc độ',timer:'Người bấm giờ',warm:'Khởi động kĩ',safe:'Tập luyện an toàn',quiz:'Vận động viên nhí'},
+ quizRoom:'r5',quizPass:6,quizTitle:'Thử thách Vận động viên nhí',certTitle:'Vận động viên nhí',certTop:'CHẠY CỰ LI NGẮN · GIÁO DỤC THỂ CHẤT 7',certWhat:'thử thách về chạy cự li ngắn',
+ intro:{r1:'Chào em! Mình là HLV Tia Chớp. Xuất phát tốt là thắng một nửa cuộc đua. Bấm từng khẩu lệnh để xem tư thế nhé!',
+  r2:'Chạy cự li ngắn có 4 giai đoạn. Để ý xem thân người ngả nhiều hay ít ở mỗi giai đoạn nhé!',
+  r3:'Toán học trên đường chạy! Quãng đường chia thời gian ra vận tốc.',
+  r4:'Không khởi động thì không chạy! Cơ thể cần được làm nóng để tránh chấn thương.',
+  r5:'Thử thách cuối cùng! 8 câu, mỗi câu 30 giây. Về đích thôi!'},
+ quiz:[
+  {q:'Thứ tự các khẩu lệnh khi xuất phát cao là:',o:['Vào chỗ – Sẵn sàng – Chạy','Sẵn sàng – Vào chỗ – Chạy','Chạy – Sẵn sàng – Vào chỗ','Vào chỗ – Chạy – Sẵn sàng'],a:0,e:'"Vào chỗ!", "Sẵn sàng!", rồi "Chạy!" (hoặc hiệu lệnh còi, cờ).'},
+  {q:'Chạy cự li ngắn gồm các giai đoạn:',o:['Xuất phát, chạy lao sau xuất phát, chạy giữa quãng, về đích','Khởi động, chạy, nghỉ','Xuất phát và về đích','Chạy nhanh, chạy chậm'],a:0,e:'Bốn giai đoạn phối hợp liên tục với nhau.'},
+  {q:'Giai đoạn nào duy trì tốc độ cao nhất?',o:['Chạy giữa quãng','Xuất phát','Về đích','Sau khi về đích'],a:0,e:'Chạy giữa quãng duy trì tốc độ cao đạt được sau chạy lao.'},
+  {q:'Khi về đích, người chạy nên:',o:['gập thân, đưa ngực hoặc vai về trước chạm đích','nhảy bật lên','giảm tốc trước vạch đích','ngửa người ra sau'],a:0,e:'Đánh đích bằng ngực hoặc vai, không nhảy, không giảm tốc.'},
+  {q:'Rời vạch xuất phát trước khi có lệnh "Chạy!" là:',o:['phạm quy','hợp lệ','một kĩ thuật hay','được khuyến khích'],a:0,e:'Xuất phát trước lệnh là phạm quy.'},
+  {q:'Bạn An chạy 60 m hết 10 giây. Vận tốc trung bình của An là:',o:['6 m/s','0,6 m/s','600 m/s','16 m/s'],a:0,e:'v = 60 : 10 = 6 m/s.'},
+  {q:'Trước khi chạy, cần:',o:['khởi động kĩ các khớp và cơ','ăn thật no','uống thật nhiều nước một lúc','đứng yên cho đỡ mệt'],a:0,e:'Khởi động giúp hạn chế chấn thương.'},
+  {q:'Sau khi về đích, em nên:',o:['chạy chậm dần, đi bộ thả lỏng rồi mới nghỉ','dừng đột ngột và ngồi xuống ngay','nằm ngay xuống đất','uống nước đá thật nhanh'],a:0,e:'Giảm tốc từ từ và thả lỏng giúp cơ thể hồi phục.'}],
+ info:[['Tên học liệu','Đường đua 60 mét'],['Loại học liệu','Học liệu tương tác và mô phỏng (mục II.2.3)'],['Môn học, lớp','Giáo dục thể chất 7 – bộ sách Kết nối tri thức với cuộc sống'],['Bài học','Chủ đề Chạy cự li ngắn: Bài 1. Phối hợp trong giai đoạn xuất phát cao và chạy lao sau xuất phát; Bài 2. Phối hợp trong giai đoạn chạy lao sau xuất phát và chạy giữa quãng; Bài 3. Phối hợp các giai đoạn chạy cự li ngắn'],
+  ['Yêu cầu cần đạt','Nhận biết và mô tả được các giai đoạn và cách phối hợp các giai đoạn chạy cự li ngắn; biết một số điều luật cơ bản trong thi đấu chạy cự li ngắn; biết khởi động và tập luyện an toàn; vận dụng tính vận tốc từ kết quả chạy.'],
+  ['Phạm vi','Học liệu hỗ trợ phần kiến thức, quan sát kĩ thuật và tổ chức tập luyện (bấm giờ, khởi động). Học liệu không thay thế giờ tập luyện thực hành; kĩ thuật động tác do giáo viên thị phạm, hướng dẫn trực tiếp theo SGK.'],
+  ['Mục đích, đối tượng','Giáo viên dùng trước và trong giờ học trên sân, giờ học trong nhà khi trời mưa; học sinh lớp 7 tự ôn kiến thức.'],
+  ['Hướng dẫn khai thác','Chọn phòng trên thanh điều hướng. Mỗi phòng có mục "Gợi ý cho giáo viên". Đồng hồ bấm giờ 4 làn dùng được trên điện thoại ngay ở sân tập. Nút 🤖 mở trợ giảng AI chỉ gợi ý, không làm hộ.'],
+  ['Tác giả','Ngô Thị Phương – Trường THCS Võ Thị Sáu, phường An Biên, thành phố Hải Phòng'],
+  ['Nguồn tài liệu','SGK Giáo dục thể chất 7 (Kết nối tri thức với cuộc sống), chủ đề Chạy cự li ngắn; kế hoạch dạy học môn GDTC 7 theo bộ sách; tài liệu kĩ thuật chạy cự li ngắn của Bệnh viện Đa khoa Quốc tế Vinmec. Kỉ lục thế giới 100 m nam 9,58 giây (Usain Bolt, 2009).'],
+  ['Bản quyền','Hình người, mô phỏng, âm thanh do tác giả tạo bằng mã; không dùng hình ảnh của bên thứ ba. Phông chữ Oswald, Lexend, Be Vietnam Pro, JetBrains Mono (giấy phép SIL OFL).'],
+  ['Sử dụng trí tuệ nhân tạo','Có dùng trợ lý AI Claude (Anthropic) hỗ trợ thiết kế, viết mã; trợ giảng AI dùng Gemini (Google) với lời nhắc sư phạm do tác giả soạn. Tác giả đã kiểm tra, xác minh nội dung và chịu trách nhiệm về tính chính xác.'],
+  ['An toàn thông tin','Không thu thập, không gửi dữ liệu cá nhân; kết quả bấm giờ, tên trên giấy chứng nhận và huy hiệu chỉ lưu trên thiết bị của người dùng.'],['Phiên bản','1.0 – tháng 10/2026']],
+ hero:heroP7};
+
+/* ---------- HÌNH NGƯỜI CHẠY ---------- */
+const rad=d=>d*Math.PI/180;
+function fig(x,gy,P,col){col=col||'#1f2433';const T=30,S=30,TO=40,UA=22,FA=20;
+  const legs=P.L.map(([th,k])=>{const kn=[T*Math.sin(rad(th)),T*Math.cos(rad(th))],ft=[kn[0]+S*Math.sin(rad(th-k)),kn[1]+S*Math.cos(rad(th-k))];return{kn,ft}});
+  const low=Math.max(...legs.map(l=>l.ft[1])),hip=[x,gy-low];
+  const sh=[hip[0]+TO*Math.sin(rad(P.lean)),hip[1]-TO*Math.cos(rad(P.lean))],hd=[sh[0]+14*Math.sin(rad(P.lean)),sh[1]-14*Math.cos(rad(P.lean))];
+  const ln=(a,b,w,c)=>`<line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" stroke="${c||col}" stroke-width="${w||7}" stroke-linecap="round"/>`;
+  let h='';P.A.forEach((a,i)=>{const el=[sh[0]+UA*Math.sin(rad(a)),sh[1]+UA*Math.cos(rad(a))],hn=[el[0]+FA*Math.sin(rad(a+75)),el[1]+FA*Math.cos(rad(a+75))];h+=ln(sh,el,6,i?'#94a3b8':col)+ln(el,hn,6,i?'#94a3b8':col)});
+  legs.forEach((l,i)=>{const kn=[hip[0]+l.kn[0],hip[1]+l.kn[1]],ft=[hip[0]+l.ft[0],hip[1]+l.ft[1]];h+=ln(hip,kn,7,i?'#94a3b8':col)+ln(kn,ft,7,i?'#94a3b8':col)});
+  h+=ln(hip,sh,8)+`<circle cx="${hd[0].toFixed(1)}" cy="${hd[1].toFixed(1)}" r="10" fill="${col}"/>`;return h}
+function runPose(p,lean){const L=[p,p+Math.PI].map(q=>[34*Math.sin(q),18+55*Math.max(0,-Math.cos(q))]);return{lean,L,A:[-50*Math.sin(p),50*Math.sin(p)]}}
+const POSE=[{lean:6,L:[[10,6],[-14,10]],A:[8,-8]},{lean:30,L:[[24,40],[-20,22]],A:[40,-45]},runPose(.9,36)];
+const CMD=[['Vào chỗ!','Bước lên sau vạch xuất phát: chân thuận (chân khoẻ) đặt sát sau vạch, chân kia ở phía sau; thân trên thẳng, hơi ngả về trước; <b>không giẫm lên vạch</b>.'],
+ ['Sẵn sàng!','Hơi khuỵu gối, hạ thấp trọng tâm, thân trên ngả về trước, trọng tâm dồn vào chân trước; tay ngược bên với chân trước đưa ra trước, tay kia ra sau; mắt nhìn về phía trước. Giữ yên tư thế.'],
+ ['Chạy!','Chân sau đạp mạnh, đưa nhanh về trước; hai tay đánh mạnh phối hợp với chân; thân người ngả về trước, chuyển ngay sang chạy lao sau xuất phát.']];
+function scene(svgId,pose,label){const gy=170;let h=`<rect x="0" y="${gy}" width="400" height="30" fill="#e4572e" opacity=".85"/><line x1="0" y1="${gy+14}" x2="400" y2="${gy+14}" stroke="#fff" stroke-width="2" stroke-dasharray="14 10"/><line x1="232" y1="${gy-4}" x2="232" y2="${gy+30}" stroke="#fff" stroke-width="5"/><text x="240" y="${gy-8}" font-size="13" font-weight="700" fill="#a33a19">vạch xuất phát</text>`;
+  h+=fig(200,gy,pose);if(label)h+=`<text x="20" y="34" font-size="22" font-weight="800" fill="#e4572e" font-family="Oswald,sans-serif">${label}</text>`;$(svgId).innerHTML=h}
+
+/* ---------- PHÒNG CHỜ ---------- */
+function heroP7(){let p=0,x=-40;const gy=210;
+  (function loop(){if(!$('v-hub').hidden){p+=.32;x+=4.2;if(x>560)x=-40;const s=Math.max(0,Math.min(60,(x+40)/600*60)),lean=s<20?36-s*1.1:s>56?30:12;
+    let h=`<rect x="0" y="${gy}" width="520" height="50" fill="#e4572e"/><line x1="0" y1="${gy+25}" x2="520" y2="${gy+25}" stroke="#fff" stroke-width="2" stroke-dasharray="16 12"/><line x1="40" y1="${gy}" x2="40" y2="${gy+50}" stroke="#fff" stroke-width="5"/><line x1="480" y1="${gy}" x2="480" y2="${gy+50}" stroke="#fff" stroke-width="5"/>`;
+    h+=`<text x="40" y="${gy-10}" font-size="13" font-weight="800" fill="#a33a19">XUẤT PHÁT</text><text x="480" y="${gy-10}" text-anchor="end" font-size="13" font-weight="800" fill="#a33a19">ĐÍCH 60 m</text>`;
+    h+=fig(x,gy,runPose(p,lean),'#1f2433');$('heroSvg').innerHTML=h;$('heroCap').innerHTML=s<1?'🏁 Xuất phát':s<20?'⚡ Chạy lao sau xuất phát: thân ngả nhiều, tăng tốc':s<55?'💨 Chạy giữa quãng: duy trì tốc độ cao':'🎯 Về đích: gập thân, đánh ngực về trước'}
+    setTimeout(()=>requestAnimationFrame(loop),30)})()}
+
+/* ---------- R1a KHẨU LỆNH ---------- */
+(function(){$$('#v-r1 .cmds .btn').forEach(b=>b.onclick=()=>{const k=+b.dataset.c;$$('#v-r1 .cmds .btn').forEach(x=>x.classList.toggle('on',x===b));scene('cm-svg',POSE[k],CMD[k][0]);$('cm-desc').innerHTML=`<b>${CMD[k][0]}</b> ${CMD[k][1]}`;
+  if(k===2)sfx.ok();else sfx.tap()});scene('cm-svg',POSE[0],'');
+  const ord=[1,2,0];let i=0,s=0,done=false;
+  function load(){done=false;const k=ord[i];scene('cq-svg',POSE[k],'');msg('cq-f','');prog('cq',i,3,s);$('cq-o').innerHTML=shuffle([0,1,2]).map(j=>`<button class="opt" data-k="${j}">${CMD[j][0]}</button>`).join('');
+    $$('#cq-o .opt').forEach(b=>b.onclick=()=>{if(done)return;done=true;const ok=+b.dataset.k===k;if(ok){s++;sfx.ok()}else sfx.bad();$$('#cq-o .opt').forEach(x=>{if(+x.dataset.k===k)x.classList.add('right');else if(x===b)x.classList.add('wrong')});msg('cq-f',(ok?'✅ ':'💭 ')+`Đây là tư thế "${CMD[k][0]}": ${CMD[k][1]}`,ok?'ok':'warn');prog('cq',i+1,3,s)})}
+  $('cq-nx').onclick=()=>{if(!done){msg('cq-f','Em chọn đáp án trước nhé!','info');return}if(i<2){i++;load()}else{const p=s===3;msg('cq-f',p?'🎉 Em nhận biết đúng cả 3 tư thế!':'Em đúng '+s+'/3. Xem lại các khẩu lệnh rồi làm lại nhé!',p?'ok':'warn');if(p)award('cmd');else{i=0;s=0;setTimeout(load,1800)}}};
+  window.__cq={get k(){return ord[i]}};load()})();
+
+/* tiện ích đúng/sai */
+function ynRoom(o){let i=0,s=0,done=false;const T=o.T;
+  function load(){done=false;$(o.q).textContent=T[i][0];msg(o.f,'');prog(o.p,i,T.length,s);$$(o.btn).forEach(x=>x.classList.remove('right','wrong'))}
+  $$(o.btn).forEach(b=>b.onclick=()=>{if(done)return;done=true;const ok=+b.dataset.k===T[i][1];if(ok){s++;sfx.ok()}else sfx.bad();$$(o.btn).forEach(x=>{if(+x.dataset.k===T[i][1])x.classList.add('right');else if(x===b)x.classList.add('wrong')});msg(o.f,(ok?'✅ ':'💭 ')+T[i][2],ok?'ok':'warn');prog(o.p,i+1,T.length,s)});
+  $(o.nx).onclick=()=>{if(!done){msg(o.f,'Em chọn đáp án trước nhé!','info');return}if(i<T.length-1){i++;load()}else{const p=s>=o.pass;msg(o.f,p?`🎉 Em đúng ${s}/${T.length}!`:`Em đúng ${s}/${T.length}. Cần ${o.pass}/${T.length} để nhận huy hiệu, làm lại nhé!`,p?'ok':'warn');if(p)award(o.badge);else{i=0;s=0;setTimeout(load,1800)}}};
+  load();return{get k(){return T[i][1]}}}
+
+/* ---------- R1b TRỌNG TÀI ---------- */
+window.__rf=ynRoom({T:[['Bạn Nam lao đi khi trọng tài mới hô "Sẵn sàng!", chưa có lệnh "Chạy!".',0,'Phạm quy: xuất phát trước lệnh.'],['Bạn Hoa đặt chân thuận sát sau vạch xuất phát, không chạm vạch.',1,'Hợp lệ: đúng tư thế "Vào chỗ".'],['Bạn Tuấn chạy lấn sang ô của bạn bên cạnh, làm bạn phải tránh.',0,'Phạm quy: phải chạy đúng ô của mình, không cản trở người khác.'],['Bạn Mai giẫm lên vạch xuất phát khi "Vào chỗ".',0,'Phạm quy: chân không được chạm, giẫm lên vạch xuất phát.'],['Gần đích, bạn Long gập thân, đưa ngực về trước để chạm đích.',1,'Hợp lệ: đây là kĩ thuật đánh đích bằng ngực.']],q:'rf-q',f:'rf-f',p:'rf',btn:'#v-r1 .yn .opt',nx:'rf-nx',pass:4,badge:'start'});
+
+/* ---------- R2a BỐN GIAI ĐOẠN ---------- */
+(function(){const X0=60,X1=780,gy=160,xs=m=>X0+m/60*(X1-X0);let busy=false;
+  function track(m,p,lean){let h=`<rect width="820" height="190" fill="#fff"/><rect x="0" y="${gy}" width="820" height="30" fill="#e4572e"/><line x1="0" y1="${gy+15}" x2="820" y2="${gy+15}" stroke="#fff" stroke-width="2" stroke-dasharray="16 12"/>`;
+    [[0,20,'#fde68a','Chạy lao'],[20,55,'#bfdbfe','Chạy giữa quãng'],[55,60,'#bbf7d0','Về đích']].forEach(([a,b,c,t])=>h+=`<rect x="${xs(a)}" y="20" width="${xs(b)-xs(a)}" height="${gy-20}" fill="${c}" opacity=".45"/><text x="${(xs(a)+xs(b))/2}" y="38" text-anchor="middle" font-size="14" font-weight="800" fill="#7a3a12">${t}</text>`);
+    [0,10,20,30,40,50,60].forEach(v=>h+=`<text x="${xs(v)}" y="${gy-4}" text-anchor="middle" font-size="12" font-weight="700" fill="#a33a19">${v} m</text>`);
+    h+=`<line x1="${xs(0)}" y1="${gy}" x2="${xs(0)}" y2="${gy+30}" stroke="#fff" stroke-width="5"/><line x1="${xs(60)}" y1="20" x2="${xs(60)}" y2="${gy+30}" stroke="#16a34a" stroke-width="4" stroke-dasharray="6 5"/>`;
+    h+=fig(xs(m),gy,m<=0?POSE[1]:runPose(p,lean));$('ph-svg').innerHTML=h;
+    const ph=m<=0?0:m<20?1:m<55?2:3;$$('#ph-bar span').forEach((sp,i)=>sp.classList.toggle('on',i===ph))}
+  track(0,0,30);
+  $('ph-run').onclick=()=>{if(busy)return;busy=true;sfx.tap();let m=0,p=0,t0=performance.now();setTimeout(()=>{sfx.ok();(function st(now){const t=(now-t0)/1000;m=Math.min(60,60*Math.pow(t/4.2,1.35));p+=.33;const lean=m<20?36-m*1.2:m>56.5?32:12;track(m,p,lean);
+      if(m<60)requestAnimationFrame(st);else{busy=false;say('Em thấy không: thân ngả nhiều lúc chạy lao, nâng dần lên khi chạy giữa quãng và gập lại khi về đích!')}})(t0=performance.now())},700)};
+  const T=[['Thân người ngả nhiều về trước, bước chạy ngắn rồi dài dần, tốc độ tăng nhanh.',1],['Duy trì tốc độ cao nhất; thân trên hơi ngả trước, đánh tay so le, tiếp đất bằng nửa bàn chân trước.',2],['Khi gần tới đích, gập thân, đưa ngực hoặc vai về trước để chạm đích.',3],['Thực hiện theo các khẩu lệnh, chuẩn bị tư thế để rời vạch nhanh nhất.',0]],N=['Xuất phát','Chạy lao sau xuất phát','Chạy giữa quãng','Về đích'];
+  let i=0,s=0,done=false;
+  function load(){done=false;$('pq-q').textContent='Mô tả: '+T[i][0];msg('pq-f','');prog('pq',i,T.length,s);$('pq-o').innerHTML=N.map((n,k)=>`<button class="opt" data-k="${k}">${k+1}. ${n}</button>`).join('');
+    $$('#pq-o .opt').forEach(b=>b.onclick=()=>{if(done)return;done=true;const ok=+b.dataset.k===T[i][1];if(ok){s++;sfx.ok()}else sfx.bad();$$('#pq-o .opt').forEach(x=>{if(+x.dataset.k===T[i][1])x.classList.add('right');else if(x===b)x.classList.add('wrong')});msg('pq-f',(ok?'✅ Đúng! ':'💭 Chưa đúng. ')+'Đây là giai đoạn '+N[T[i][1]]+'.',ok?'ok':'warn');prog('pq',i+1,T.length,s)})}
+  $('pq-nx').onclick=()=>{if(!done){msg('pq-f','Em chọn đáp án trước nhé!','info');return}if(i<T.length-1){i++;load()}else{const p=s===4;msg('pq-f',p?'🎉 Em nắm chắc cả 4 giai đoạn!':'Em đúng '+s+'/4. Bấm Chạy thử để xem lại rồi làm lại nhé!',p?'ok':'warn');if(p)award('phases');else{i=0;s=0;setTimeout(load,1800)}}};
+  window.__pq={get k(){return T[i][1]}};load()})();
+
+/* ---------- R2b LỖI SAI ---------- */
+window.__er=ynRoom({T:[['Ngửa người ra sau khi chạy giữa quãng.',0,'Sai: thân trên cần hơi ngả về trước để chạy nhanh và giữ thăng bằng.'],['Nhảy bật lên để về đích.',0,'Sai: nhảy làm mất tốc độ; hãy gập thân, đánh ngực hoặc vai về trước.'],['Đánh tay so le, phối hợp nhịp nhàng với chân.',1,'Đúng: tay đánh so le giúp giữ thăng bằng và tăng tốc.'],['Giảm tốc độ trước khi tới vạch đích.',0,'Sai: phải giữ tốc độ, chạy qua hẳn vạch đích.'],['Sau khi về đích, tiếp tục chạy chậm dần rồi mới dừng lại.',1,'Đúng: giảm tốc từ từ để tránh chấn thương.']],q:'er-q',f:'er-f',p:'er',btn:'#v-r2 .yn .opt',nx:'er-nx',pass:4,badge:'errors'});
+
+/* ---------- R3a VẬN TỐC ---------- */
+(function(){const n2=x=>(Math.round(x*100)/100).toLocaleString('vi-VN');
+  const calc=()=>{const s=+$('sp-s').value,t=+$('sp-t').value;$('sp-v').innerHTML=t>0?`v ≈ ${n2(s/t)} m/s ≈ ${n2(s/t*3.6)} km/h`:'t phải lớn hơn 0'};$('sp-s').oninput=calc;$('sp-t').oninput=calc;calc();
+  const T=[{q:'Bạn An chạy 60 m hết 10 giây. Vận tốc trung bình của An là:',o:['6 m/s','0,6 m/s','600 m/s','16 m/s'],e:'v = 60 : 10 = 6 m/s.'},{q:'Bạn Bình chạy 60 m hết 12 giây. Vận tốc trung bình của Bình là:',o:['5 m/s','6 m/s','7,2 m/s','4 m/s'],e:'v = 60 : 12 = 5 m/s.'},
+   {q:'6 m/s bằng bao nhiêu km/h?',o:['21,6 km/h','6 km/h','60 km/h','36 km/h'],e:'1 m/s = 3,6 km/h nên 6 m/s = 6 · 3,6 = 21,6 km/h.'},{q:'Ba bạn chạy 60 m: An 9,8 giây; Bình 10,4 giây; Chi 9,5 giây. Ai chạy nhanh nhất?',o:['Chi','An','Bình','Bằng nhau'],e:'Cùng quãng đường, ai ít thời gian nhất thì nhanh nhất: Chi (9,5 giây).'}];
+  let i=0,s=0,done=false;
+  function load(){done=false;const t=T[i];$('sq-q').textContent=t.q;msg('sq-f','');prog('sq',i,T.length,s);$('sq-o').innerHTML=shuffle(t.o.map((x,k)=>k)).map(k=>`<button class="opt" data-k="${k}">${t.o[k]}</button>`).join('');
+    $$('#sq-o .opt').forEach(b=>b.onclick=()=>{if(done)return;done=true;const ok=b.dataset.k==='0';if(ok){s++;sfx.ok()}else sfx.bad();$$('#sq-o .opt').forEach(x=>{if(x.dataset.k==='0')x.classList.add('right');else if(x===b)x.classList.add('wrong')});msg('sq-f',(ok?'✅ ':'💭 ')+t.e,ok?'ok':'warn');prog('sq',i+1,T.length,s)})}
+  $('sq-nx').onclick=()=>{if(!done){msg('sq-f','Em chọn đáp án trước nhé!','info');return}if(i<T.length-1){i++;load()}else{const p=s>=3;msg('sq-f',p?'🎉 Em tính đúng '+s+'/4 câu!':'Em đúng '+s+'/4. Cần 3/4 để nhận huy hiệu, làm lại nhé!',p?'ok':'warn');if(p)award('speed');else{i=0;s=0;setTimeout(load,1800)}}};
+  load()})();
+
+/* ---------- R3b ĐỒNG HỒ 4 LÀN ---------- */
+(function(){let t0=0,raf=0,run=false,res=[null,null,null,null];const tms=[];
+  function lanes(){$('tm-lanes').innerHTML=[0,1,2,3].map(k=>`<tr><td><input id="tm-n${k}" value="Làn ${k+1}" aria-label="Tên làn ${k+1}"></td><td><span class="t" id="tm-t${k}">–</span></td><td><button class="btn line" data-k="${k}">⏹ Về đích</button></td><td class="small" id="tm-v${k}"></td></tr>`).join('');
+    $$('#tm-lanes button').forEach(b=>b.onclick=()=>stopLane(+b.dataset.k))}
+  const fmt=x=>x.toFixed(2).replace('.',',');
+  function tick(){if(!run)return;$('tm-clock').textContent=fmt((performance.now()-t0)/1000);raf=requestAnimationFrame(tick)}
+  function stopLane(k){if(!run||res[k]!==null)return;const t=(performance.now()-t0)/1000;res[k]=t;sfx.tap();const d=+$('tm-d').value||60;$('tm-t'+k).textContent=fmt(t)+' s';$('tm-v'+k).textContent=`≈ ${fmt(d/t)} m/s`;
+    if(res.every(x=>x!==null))finish()}
+  function finish(){run=false;cancelAnimationFrame(raf);$('tm-go').textContent='🏁 Xuất phát';const done=res.map((t,k)=>[t,k]).filter(x=>x[0]!==null).sort((a,b)=>a[0]-b[0]);
+    if(done.length)msg('tm-f','🏆 Thứ tự về đích: '+done.map(([t,k],j)=>`${j+1}. ${$('tm-n'+k).value} (${fmt(t)} s)`).join(' · '),'ok');if(done.length>=2)award('timer')}
+  $('tm-go').onclick=()=>{if(run){finish();return}res=[null,null,null,null];[0,1,2,3].forEach(k=>{$('tm-t'+k).textContent='–';$('tm-v'+k).textContent=''});msg('tm-f','');
+    tms.forEach(clearTimeout);const say3=['Vào chỗ!','Sẵn sàng!','CHẠY!'];say3.forEach((w,j)=>tms.push(setTimeout(()=>{$('tm-clock').textContent=w;j<2?beep(660,.15):beep(990,.35);if(j===2){t0=performance.now();run=true;$('tm-go').textContent='⏹ Kết thúc lượt';tick()}},j*1300)))};
+  $('tm-reset').onclick=()=>{tms.forEach(clearTimeout);run=false;cancelAnimationFrame(raf);res=[null,null,null,null];lanes();$('tm-clock').textContent='0,00';$('tm-go').textContent='🏁 Xuất phát';msg('tm-f','')};
+  STOP.push(()=>{tms.forEach(clearTimeout)});
+  lanes();
+  window.__tm={start(){t0=performance.now()-9000;run=true;res=[null,null,null,null]},stop:stopLane}})();
+
+/* ---------- R4a KHỞI ĐỘNG ---------- */
+(function(){const W=[['🔄','Xoay cổ tay, cổ chân'],['🦵','Xoay khớp gối'],['🤸','Ép dẻo dọc, ép dẻo ngang'],['👟','Chạy bước nhỏ tại chỗ'],['⬆️','Nâng cao đùi tại chỗ'],['↩️','Chạy đạp sau tại chỗ']],D=20;let cur=-1,left=0,tmr=0;
+  function draw(){$('wu-list').innerHTML=W.map((w,k)=>`<div class="${k<cur?'ok':k===cur?'on':''}"><span class="e">${w[0]}</span>${w[1]}</div>`).join('')}
+  function stop(){clearInterval(tmr);tmr=0}STOP.push(stop);
+  function next(){cur++;draw();if(cur>=W.length){stop();$('wu-cd').textContent='✔';msg('wu-f','🎉 Khởi động xong! Cơ thể đã sẵn sàng cho đường chạy.','ok');award('warm');return}left=D;$('wu-cd').textContent=left;beep(880,.12)}
+  $('wu-go').onclick=()=>{stop();cur=-1;next();tmr=setInterval(()=>{left--;$('wu-cd').textContent=left>0?left:'✔';if(left<=3&&left>0)sfx.tick();if(left<=0)next()},1000)};
+  $('wu-skip').onclick=()=>{if(cur<0||cur>=W.length)return;next()};
+  $('hr-ck').onclick=()=>{const n=parseInt($('hr-n').value);if(isNaN(n)||n<=0){msg('wu-f','Em nhập số nhịp đếm được trong 15 giây nhé.','info');return}
+    msg('wu-f',`💓 Nhịp tim khoảng <b>${n*4} nhịp/phút</b> (${n} × 4). So sánh trước và sau khi chạy: vận động làm tim đập nhanh hơn là bình thường. Nếu thấy chóng mặt, đau ngực, khó thở bất thường, hãy dừng lại và báo thầy cô ngay.`,'info')};
+  draw()})();
+
+/* ---------- R4b AN TOÀN ---------- */
+window.__sf=ynRoom({T:[['Khởi động kĩ trước khi chạy giúp hạn chế chấn thương.',1,'Đúng: khởi động làm nóng cơ, khớp.'],['Có thể đi dép lê khi chạy cho thoải mái.',0,'Sai: nên đi giày thể thao vừa chân, buộc dây chắc chắn.'],['Uống thật nhiều nước một lúc ngay trước khi chạy.',0,'Sai: nên uống vừa đủ, từng ngụm nhỏ.'],['Khi chạy thấy chóng mặt, đau ngực thì dừng lại và báo thầy cô.',1,'Đúng: an toàn là trên hết.'],['Có thể luyện chạy nhanh trên đường giao thông đông xe.',0,'Sai: chỉ tập ở sân trường, sân vận động, nơi an toàn.']],q:'sf-q',f:'sf-f',p:'sf',btn:'#v-r4 .yn .opt',nx:'sf-nx',pass:4,badge:'safe'});
+/* ====== GIAO DIỆN RIÊNG: ĐƯỜNG ĐUA ====== */
+L.renderHub=function(){const box=$('hubRooms');box.className='lanesHub';const nb=Object.keys(L.badges).filter(k=>ST.b[k]).length,NB=Object.keys(L.badges).length;
+  box.innerHTML=`<div class="board2"><span>🏟️ SÂN VẬN ĐỘNG 7C8</span><span>CHẶNG ĐUA: 5 LÀN</span><span class="score">⭐ ${nb}/${NB}</span></div><div class="trk">`+L.rooms.map((r,i)=>{const got=r[5].filter(k=>ST.b[k]).length,pc=got/r[5].length,ok=pc===1;
+    return `<button class="lane${ok?' ok':''}" data-go="${r[0]}"><span class="ln">${i+1}</span><span class="lt"><b>${r[1]}</b><small>${r[2]}</small></span><span class="lpath"><span class="runner" style="left:calc(${Math.round(pc*100)}% - ${Math.round(pc*36)}px)">${ok?'🏅':'🏃'}</span></span><span class="lst">${got}/${r[5].length}</span></button>`}).join('')+'</div>';
+  $$('#hubRooms .lane').forEach(b=>b.onclick=()=>go(b.dataset.go))};
+
+/* chặng cuối: đua với máy */
+const QR=[];
+L.qStage=function(o){if(o.qi===0&&o.last===null)QR.length=0;if(o.last!==null)QR[o.qi]=o.last;const ans=QR.filter(x=>x!==undefined).length,ok=QR.filter(x=>x).length;
+  const end0=o.last!==null&&o.qi===o.n-1,me=end0&&o.qs>=o.pass?1:ok/o.n,bot=Math.min(1,ans*(o.pass-.5)/(o.n*o.n)),end=o.last!==null&&o.qi===o.n-1,win=end&&o.qs>=o.pass;
+  const pos=f=>`calc(${(f*100).toFixed(1)}% - ${Math.round(f*40)}px)`;
+  $('qStage').innerHTML=`<div class="race${win?' win':''}"><div class="rr"><span class="rl">EM</span><div class="rt"><span class="rn" style="left:${pos(me)}">🏃</span><span class="fin"></span></div></div>
+    <div class="rr"><span class="rl">MÁY</span><div class="rt"><span class="rn bot" style="left:${pos(bot)}">🤖</span><span class="fin"></span></div></div>
+    <div class="rtx">${win?'🥇 Em đã về đích trước máy!':end?'Máy chạy nhanh hơn em rồi! Cần ít nhất '+o.pass+' câu đúng để thắng.':'Mỗi câu đúng giúp em chạy thêm 1 đoạn. Máy chạy đều sau mỗi câu, cần ít nhất '+o.pass+'/'+o.n+' câu đúng để thắng.'}</div></div>`};
+
+/* giấy chứng nhận: huy chương */
+L.cert=c=>{const tier=c.qs>=8?['VÀNG','#f5b400','#fff3c4']:c.qs>=7?['BẠC','#9ca3af','#f3f4f6']:['ĐỒNG','#c2733a','#fde7d6'];
+  return `<div class="medalc"><div class="mtop">GIẢI CHẠY CỰ LI NGẮN · GIÁO DỤC THỂ CHẤT 7</div><div class="medal"><div class="rib"></div><div class="disc" style="--m:${tier[1]};--m2:${tier[2]}"><span>60m</span><b>${tier[0]}</b></div></div>
+  <h2>GIẤY CHỨNG NHẬN</h2><div class="ct">Vận động viên nhí – Huy chương ${tier[0].toLowerCase()}</div><div>Trao cho</div><div class="who" id="certWho">${c.name}</div>
+  <div class="mstats"><span>✅ ${c.qs}/${c.n} câu</span><span>🏅 ${c.b}/${c.B} huy hiệu</span><span>📅 ${c.date}</span></div>
+  <div class="small">GV hướng dẫn: Ngô Thị Phương – THCS Võ Thị Sáu, Hải Phòng</div><div class="row center">${c.nameIn}</div><div class="small" style="margin-top:6px">📸 Chụp màn hình gửi cô nhé!</div></div>`};
+
+boot();
+</script>
+<!-- ===== TRỢ GIẢNG AI – ĐƯỜNG ĐUA 60 MÉT (dán ngay TRƯỚC thẻ </body> trong index.html) ===== -->
+<style>
+#tgai-btn{position:fixed;right:18px;bottom:18px;z-index:99999;display:flex;align-items:center;gap:8px;padding:12px 18px;border:none;border-radius:999px;background:linear-gradient(135deg,#2dd4bf,#0ea5e9);color:#04221f;font:700 15px/1 'Be Vietnam Pro',system-ui,sans-serif;cursor:pointer;box-shadow:0 8px 24px rgba(45,212,191,.35)}
+#tgai-btn:hover{transform:translateY(-2px)}
+#tgai-box{position:fixed;right:18px;bottom:78px;z-index:99999;width:370px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 110px);display:none;flex-direction:column;background:#0b1f24;border:1px solid #1f4a4f;border-radius:20px;box-shadow:0 18px 50px rgba(0,0,0,.5);font-family:'Be Vietnam Pro',system-ui,sans-serif;color:#e6fffb;overflow:hidden}
+#tgai-box.open{display:flex}
+#tgai-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:#0f2c32;border-bottom:1px solid #1f4a4f}
+#tgai-head b{font-size:15px}
+#tgai-head small{display:block;font-size:12px;color:#8fbfba;font-weight:400}
+#tgai-x{background:none;border:none;color:#8fbfba;font-size:22px;cursor:pointer}
+#tgai-log{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.tgai-b{padding:9px 12px;border-radius:14px;font-size:14px;line-height:1.5;max-width:88%;white-space:pre-wrap}
+.tgai-a{align-self:flex-start;background:#133a40;border-bottom-left-radius:4px}
+.tgai-u{align-self:flex-end;background:#2dd4bf;color:#04221f;border-bottom-right-radius:4px}
+#tgai-chips{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 8px}
+.tgai-c{border:1px solid #1f4a4f;background:transparent;color:#bdf5ec;border-radius:999px;padding:5px 10px;font:13px 'Be Vietnam Pro',system-ui,sans-serif;cursor:pointer}
+#tgai-f{display:flex;gap:8px;padding:10px 12px;border-top:1px solid #1f4a4f}
+#tgai-q{flex:1;min-width:0;background:#0f2c32;border:1px solid #1f4a4f;border-radius:12px;padding:10px;color:#e6fffb;font:15px 'Be Vietnam Pro',system-ui,sans-serif}
+#tgai-send{border:none;border-radius:12px;padding:0 14px;background:#2dd4bf;color:#04221f;font-weight:700;cursor:pointer}
+#tgai-rule{font-size:11.5px;color:#8fbfba;padding:0 12px 10px}
+@media(max-width:600px){#tgai-btn .tgai-t{display:none}#tgai-btn{padding:14px;font-size:22px}}
+/* Khi trang được nhúng (Google Site): nút thành thanh ở đầu trang, khung chat mở ngay bên dưới */
+.tgai-embed #tgai-btn{position:relative;right:auto;bottom:auto;width:calc(100% - 24px);margin:10px 12px 0;justify-content:center;padding:12px 18px;font-size:15px}
+.tgai-embed #tgai-btn .tgai-t{display:inline}
+.tgai-embed #tgai-box{position:absolute;top:66px;bottom:auto;right:12px;height:500px;max-height:none}
+</style>
+
+<button id="tgai-btn" aria-label="Mở trợ giảng AI">🤖<span class="tgai-t"> Hỏi trợ giảng AI</span></button>
+<div id="tgai-box" role="dialog" aria-label="Trợ giảng AI">
+  <div id="tgai-head"><div><b>🤖 Trợ giảng AI</b><small>GDTC 7 · Chạy cự li ngắn</small></div><button id="tgai-x" aria-label="Đóng">×</button></div>
+  <div id="tgai-log"><div class="tgai-b tgai-a">Chào em! Mình là trợ giảng AI của Đường đua 60 mét. Em thắc mắc về kĩ thuật chạy, luật hay cách tập an toàn cứ hỏi nhé 😊</div></div>
+  <div id="tgai-chips">
+    <button class="tgai-c">Chạy cự li ngắn có mấy giai đoạn?</button>
+    <button class="tgai-c">Về đích thế nào cho đúng?</button>
+    <button class="tgai-c">Gợi ý cho câu em đang làm</button>
+  </div>
+  <div id="tgai-f"><input id="tgai-q" maxlength="300" placeholder="Nhập câu hỏi của em…"><button id="tgai-send">Gửi</button></div>
+  <div id="tgai-rule">🛡️ Hỏi để hiểu, không hỏi để chép · Không ghi thông tin cá nhân · AI có thể sai, hãy kiểm tra với SGK và thầy cô.</div>
+</div>
+
+<script>
+(function(){
+  // Đang nằm trong khung nhúng (Google Site)? -> đưa nút lên đầu trang để luôn nhìn thấy
+  var inFrame=false;try{inFrame=window.self!==window.top}catch(e){inFrame=true}
+  if(inFrame){document.documentElement.classList.add('tgai-embed');var bt=document.getElementById('tgai-btn');document.body.insertBefore(bt,document.body.firstChild);document.body.style.position='relative';document.body.appendChild(document.getElementById('tgai-box'))}
+  var box=document.getElementById('tgai-box'),log=document.getElementById('tgai-log'),inp=document.getElementById('tgai-q'),hist=[],busy=false;
+  document.getElementById('tgai-btn').onclick=function(){box.classList.toggle('open');if(box.classList.contains('open'))inp.focus()};
+  document.getElementById('tgai-x').onclick=function(){box.classList.remove('open')};
+  function add(t,who){var d=document.createElement('div');d.className='tgai-b '+who;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+  function where(){
+    var v=[].slice.call(document.querySelectorAll('.view')).find(function(e){return !e.hidden}),t=v?v.innerText.replace(/\s+/g,' ').slice(0,320):'';
+    return 'Học sinh đang dùng học liệu "Đường đua 60 mét" (Giáo dục thể chất 7, chủ đề Chạy cự li ngắn). Phần đang xem: "'+t+'". KHÔNG nói ra đáp án của câu đang làm, chỉ gợi ý cách nghĩ.';
+  }
+  async function ask(text){
+    var q=(text||inp.value).trim(); if(!q||busy)return; inp.value=''; busy=true;
+    add(q,'tgai-u'); var w=add('Trợ giảng đang suy nghĩ…','tgai-a');
+    try{
+      var r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q,context:where(),history:hist.slice(-6)})});
+      var j=await r.json(); if(!r.ok||!j.reply)throw 0;
+      w.textContent=j.reply; hist.push({role:'user',text:q},{role:'ai',text:j.reply});
+    }catch(e){w.textContent='Trợ giảng AI đang tạm nghỉ. Em thử lại sau hoặc hỏi thầy cô nhé!'}
+    busy=false;
+  }
+  document.getElementById('tgai-send').onclick=function(){ask()};
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter')ask()});
+  document.querySelectorAll('.tgai-c').forEach(function(b){b.onclick=function(){ask(b.textContent)}});
+})();
+</script>
+<!-- ===== HẾT ĐOẠN TRỢ GIẢNG AI ===== -->
+
+<!-- Vercel Web Analytics -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
